@@ -8,6 +8,8 @@ class  Player:
 
         self.mouse_x = 0
         self.mouse_y = 0
+        self.sin_mouse = 0
+        self.cos_mouse = 0
 
     @property
     def pos(self):
@@ -32,22 +34,25 @@ class  Player:
             self.angle -= .02
         if keys[pygame.K_RIGHT]:
             self.angle  += .02
-        print(self.angle)
+
+
+
         if any((self.x > WIDTH,self.x < 0, self.y > HEIGHT, self.y < 0)):
             self.x, self.y = player_pos
 
-
+        self.mouse_tracking()
 
 
 
     def mouse_tracking(self):
         self.mouse_x, self.mouse_y = pygame.mouse.get_pos()
 
-        a = abs(self.x - self.mouse_x)
-        b = abs(self.y - self.mouse_y)
+        a = self.mouse_x - self.x
+        b = self.mouse_y - self.y
         c = math.sqrt(a**2 + b**2)
         self.sin_mouse = a / c
         self.cos_mouse = b / c
+
         #  if self.mouse_pos[0] > self.x and self.mouse_pos[1] < self.y:
         #     self.mouse_pos = (self.mouse_pos[0] ,self.mouse_pos[1]-HEIGHT)
         # elif self.mouse_pos[0] < self.x and self.mouse_pos[1] < self.y:
