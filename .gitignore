@@ -12,5 +12,5 @@ pip-selfcheck.json
 .idea/misc.xml
 .idea/modules.xml
 __pycache__/
-
+vcs.xml
 venv/

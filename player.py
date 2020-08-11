@@ -40,7 +40,7 @@ class  Player:
 
 
 
-    def mouse_tracking(self):  
+    def mouse_tracking(self):
         self.mouse_x, self.mouse_y = pygame.mouse.get_pos()
 
         a = abs(self.x - self.mouse_x)
